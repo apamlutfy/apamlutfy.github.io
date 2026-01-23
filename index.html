@@ -9,10 +9,69 @@
 
   gtag('config', 'G-T2FFW7ET2J');
 </script>
-<title> My Personal Website </title>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: lime;
+      font-family: monospace;
+      font-size: 24px;
+    }
+    #container {
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-  <body bgcolor="white" text="blue">
-    <h1> My first page 2026</h1>
-    My Website Management Class Project January 2026
-  </body>
+<body>
+
+<div id="container">
+  <p id="text">Initializing system...</p>
+  <p id="loading">█▒▒▒▒▒▒▒▒▒ 10%</p>
+</div>
+
+<script>
+  const loadingText = document.getElementById("loading");
+  const mainText = document.getElementById("text");
+
+  let percent = 10;
+
+  const interval = setInterval(() => {
+    percent += 10;
+    loadingText.textContent = "█".repeat(percent / 10) + "▒".repeat(10 - percent / 10) + ` ${percent}%`;
+
+    if (percent === 100) {
+      clearInterval(interval);
+      setTimeout(troll, 800);
+    }
+  }, 500);
+
+  function troll() {
+    document.body.style.background = "pink";
+    document.body.style.color = "black";
+    mainText.textContent = "🚨 SYSTEM ERROR 🚨";
+    loadingText.innerHTML = `
+      <br>Just kidding 😜<br><br>
+      YOU GOT TROLLED<br><br>
+      <button onclick="alert('😂😂😂')">Accept Defeat</button>
+    `;
+  }
+</script>
+
+</body>
 </html>
+
